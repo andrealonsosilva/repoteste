@@ -11,7 +11,7 @@ namespace WebTeste.Api.Pages
         {
             _logger = logger;
             _random = new Random();
-            texto = "Teste de decoração de PR";
+            texto = "Teste de decoração de PR_1";
         }
 
         public void OnGet()
