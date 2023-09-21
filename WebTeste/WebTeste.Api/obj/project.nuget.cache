@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "85p0uI0kg5DiNSiwE0xbgZ5HxJhAjhmpfzpUUhNBmEYiebCXmdVCNX/AU7JpzdTk7gbU/Fis5N+Di2t2qfaPEQ==",
+  "success": true,
+  "projectFilePath": "F:\\Repos\\TestsAndre\\repoteste\\WebTeste\\WebTeste.Api\\WebTeste.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\andre\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.18.1\\microsoft.visualstudio.azure.containers.tools.targets.1.18.1.nupkg.sha512"
+  ],
+  "logs": []
+}
