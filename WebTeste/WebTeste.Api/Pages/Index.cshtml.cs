@@ -1,4 +1,6 @@
-﻿namespace WebTeste.Api.Pages
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace WebTeste.Api.Pages
 {
     public class IndexModel : PageModel
     {
