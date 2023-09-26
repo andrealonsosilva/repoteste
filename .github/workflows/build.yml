@@ -39,6 +39,6 @@ jobs:
         run: |
           dotnet tool update dotnet-sonarscanner --global
           export PATH="$PATH:/root/.dotnet/tools"
-          dotnet sonarscanner begin /k:"teste-andre" /d:sonar.login="sqp_fa23d8ec93cdb82eb0a30e9a31122a9e11647556" /d:sonar.host.url="https://sonar.gvp-dev.com"
+          dotnet-sonarscanner begin /k:"teste-andre" /d:sonar.login="sqp_fa23d8ec93cdb82eb0a30e9a31122a9e11647556" /d:sonar.host.url="https://sonar.gvp-dev.com"
           dotnet build
-          dotnet sonarscanner end /d:sonar.login="sqp_fa23d8ec93cdb82eb0a30e9a31122a9e11647556"
+          dotnet-sonarscanner end /d:sonar.login="sqp_fa23d8ec93cdb82eb0a30e9a31122a9e11647556"
