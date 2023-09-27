@@ -37,8 +37,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         shell: bash
         run: |
-          dotnet tool update dotnet-sonarscanner --global
-          export PATH="$PATH:/root/.dotnet/tools/sonar-scanner"
           dotnet sonarscanner begin /k:"teste-andre" /d:sonar.login="sqp_fa23d8ec93cdb82eb0a30e9a31122a9e11647556" /d:sonar.host.url="https://sonar.gvp-dev.com"
           dotnet build
           dotnet sonarscanner end /d:sonar.login="sqp_fa23d8ec93cdb82eb0a30e9a31122a9e11647556"
