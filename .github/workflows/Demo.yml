@@ -5,9 +5,12 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Get version from build_settings.json
+      - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+
+      - name: Get version from build_settings.json
+        run: |
           val=( $(jq '.version' build_settings.json))
           echo $val
       
