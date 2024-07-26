@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Get version from build_settings.json
         run: |
-          val=( $(jq 'version' build_settings.json))
+          val=( $(jq '.version' build_settings.json))
           echo $val
       
       - run: echo "🍏 This job's status is ${{ job.status }}."
