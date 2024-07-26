@@ -12,7 +12,7 @@ jobs:
           cd ${{ github.workspace }}
           version=( $(jq '.version' build_settings.json))
           echo $version
-          reference = 'refs/tags' + $version
+          reference="refs/tags/" + $version
           echo $reference
           curl -L \
             -X POST \
