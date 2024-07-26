@@ -10,8 +10,8 @@ jobs:
       - name: List files in the repository
         run: |
           cd ${{ github.workspace }}
-          val=( $(jq '.version' build_settings.json))
-          echo $val
+          version=( $(jq '.version' build_settings.json))
+          echo $version
 
           curl -L \
             -X POST \
@@ -19,4 +19,4 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.API_TOKEN }}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             https://api.github.com/repos/andrealonsosilva/repoteste/git/refs \
-            -d '{"ref":"refs/tags/$val","sha":"${{ github.sha }}"}'
+            -d '{"ref":"refs/tags/${version}","sha":"${{ github.sha }}"}'
