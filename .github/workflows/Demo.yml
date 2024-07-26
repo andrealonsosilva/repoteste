@@ -11,7 +11,7 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           version=( $(jq '.version' build_settings.json))
-          echo $version
+          echo $version | cut -d """ -f 2
           reference="refs/tags/${version:1%?}"
           echo $reference
           curl -L \
