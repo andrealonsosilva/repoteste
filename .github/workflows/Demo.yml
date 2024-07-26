@@ -9,7 +9,21 @@ jobs:
         uses: actions/checkout@v4
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}
           cd ${{ github.workspace }}
           val=( $(jq '.version' build_settings.json))
           echo $val
+
+          curl -X POST https://api.github.com/repos/andrealonsosilva/repoteste/git/tags
+            -H "Content-Type: application/json"
+            -d '{
+            'tag': $val
+            'message': $val
+            'object': ${{ github.sha }},
+            'type': 'commit',
+            'tagger':
+            {
+                'name': 'teste-andre',
+                'email': 'andre.silva@agilecontent.com',
+                'date': datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S-00:00')
+              }
+            }'
