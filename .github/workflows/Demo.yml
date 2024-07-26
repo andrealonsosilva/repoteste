@@ -15,4 +15,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+          cd ${{ github.workspace }}
+          val=( $(jq '.version' build_settings.json))
+          echo $val
       - run: echo "🍏 This job's status is ${{ job.status }}."
