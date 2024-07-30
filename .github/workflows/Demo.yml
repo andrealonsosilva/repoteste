@@ -1,14 +1,13 @@
 on:
   push:
-    branches:
-      - main
+    branches: [ main, '[0-9]*.[0-9]*.[0-9]*' ]
 jobs:
-  Explore-GitHub-Actions:
+  Create_Git_Tag:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: List files in the repository
+      - name: Create version tag
         run: |
           cd ${{ github.workspace }}
           version=( $(jq '.version' build_settings.json))
