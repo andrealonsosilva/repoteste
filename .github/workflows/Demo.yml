@@ -17,6 +17,7 @@ jobs:
           echo "${version:1:${#version}-2}"
           reference="refs/tags/${version:1:${#version}-2}"
           echo $reference
-          
-          git tag ${version}
+          sed -i 's/$WCREV/${count}/g' ${version}
+          echo ${version}
+          git tag ${version:1:${#version}-2}
           git push origin --tags
