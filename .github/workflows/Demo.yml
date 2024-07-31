@@ -1,16 +1,17 @@
 on:
   push:
-    branches: [ main, '[0-9]*.[0-9]*.[0-9]*' ]
+    branches: [ main, master, '[0-9]+.[0-9]+.?[0-9]?' ]
+
 jobs:
-  Create_Git_Tag:
+  Create_GitTag:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-        name: Create Git Tag
-      - run: |
-          
+      - name: Create version tag
+        run: |
           echo "Getting commit count"
           count=( $(git log --oneline | wc -l) )
           
@@ -19,7 +20,7 @@ jobs:
           cleanVersion=${version:1:${#version}-2}
           replacedVersion=${cleanVersion/\$WCREV\$/}
           sprint=( $(jq '.sprint' build_settings.json))
-          fullVersion = ${replacedVersion}.${sprint}.$count
+          fullversion=${replacedVersion}${sprint}.${count}
           echo "Creating tag: ${replacedVersion}"
           git tag $replacedVersion
           git push origin --tags
