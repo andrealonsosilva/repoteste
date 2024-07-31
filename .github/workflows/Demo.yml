@@ -5,11 +5,10 @@ jobs:
   Create_Git_Tag:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Create version tag
+      - name: Teste
         run: |
           cd ${{ github.workspace }}
           version=( $(jq '.version' build_settings.json))
