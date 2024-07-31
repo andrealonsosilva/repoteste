@@ -15,9 +15,7 @@ jobs:
           cd ${{ github.workspace }}
           version=( $(jq '.version' build_settings.json))
           cleanVersion=${version:1:${#version}-2}
-          echo $cleanVersion
-
           replacedVersion=${cleanVersion/\$WCREV\$/$count}
-          echo ${replacedVersion}
+          echo "Creating tag: ${replacedVersion}"
           git tag $replacedVersion
           git push origin --tags
