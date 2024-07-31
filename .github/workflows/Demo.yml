@@ -10,7 +10,7 @@ jobs:
           fetch-depth: 0
       - run: |
           echo "Getting commit count"
-          git log --oneline | wc -l
+          $count = git log --oneline | wc -l
           echo $count
           cd ${{ github.workspace }}
           version=( $(jq '.version' build_settings.json))
