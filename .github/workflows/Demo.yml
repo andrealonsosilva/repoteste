@@ -8,14 +8,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+        name: Create Git Tag
       - run: |
+          
           echo "Getting commit count"
           count=( $(git log --oneline | wc -l) )
-          echo $count
+          
           cd ${{ github.workspace }}
           version=( $(jq '.version' build_settings.json))
           cleanVersion=${version:1:${#version}-2}
           replacedVersion=${cleanVersion/\$WCREV\$/$count}
+          
           echo "Creating tag: ${replacedVersion}"
           git tag $replacedVersion
           git push origin --tags
