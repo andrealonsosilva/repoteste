@@ -17,7 +17,7 @@ jobs:
           cleanVersion=${version:1:${#version}-2}
           echo $cleanVersion
 
-          replacedVersion=(${cleanVersion/"$WCREV$"/"${count}"})
+          replacedVersion=${cleanVersion/$WCREV$/"${count}"}
           echo ${replacedVersion}
           # git tag $replacedVersion
           # git push origin --tags
