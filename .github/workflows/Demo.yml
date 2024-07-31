@@ -19,5 +19,5 @@ jobs:
 
           replacedVersion=${cleanVersion/\$WCREV\$/$count}
           echo ${replacedVersion}
-          # git tag $replacedVersion
-          # git push origin --tags
+          git tag $replacedVersion
+          git push origin --tags
