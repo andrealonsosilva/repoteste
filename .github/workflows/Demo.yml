@@ -17,7 +17,7 @@ jobs:
           echo "${version:1:${#version}-2}"
           reference="refs/tags/${version:1:${#version}-2}"
           echo $reference
-          replacedVersion=(${${version:1:${#version}-2}/$WCREV$/"$count"})
+          replacedVersion=(${${version:1:${#version}-2}/$WCREV$/"${count}"})
           echo ${replacedVersion}
           # git tag $replacedVersion
           # git push origin --tags
