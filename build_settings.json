@@ -1,3 +1,4 @@
 {
-    "version": "1.0.$WCREV$"
+    "version": "1.0.$WCREV$",
+    "sprint": 9
 }
