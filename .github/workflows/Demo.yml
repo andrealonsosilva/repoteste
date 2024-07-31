@@ -14,10 +14,10 @@ jobs:
           echo $count
           cd ${{ github.workspace }}
           version=( $(jq '.version' build_settings.json))
-          echo "${version:1:${#version}-2}"
-          reference="refs/tags/${version:1:${#version}-2}"
-          echo $reference
-          replacedVersion=(${${version:1:${#version}-2}/$WCREV$/"${count}"})
+          cleanVersion=${version:1:${#version}-2}
+          echo $cleanVersion
+
+          replacedVersion=(${cleanVersion/$WCREV$/"${count}"})
           echo ${replacedVersion}
           # git tag $replacedVersion
           # git push origin --tags
