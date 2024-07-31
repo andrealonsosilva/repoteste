@@ -9,15 +9,14 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
+          echo "Getting commit count"
+          $count = git log --oneline | wc -l
+          echo $count
           cd ${{ github.workspace }}
           version=( $(jq '.version' build_settings.json))
           echo "${version:1:${#version}-2}"
           reference="refs/tags/${version:1:${#version}-2}"
           echo $reference
-
-          echo "Getting commit count"
-          $count = git log --oneline | wc -l
-          echo $count
           
           curl -L \
             -X POST \
