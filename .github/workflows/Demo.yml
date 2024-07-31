@@ -21,6 +21,6 @@ jobs:
           replacedVersion=${cleanVersion/\$WCREV\$/}
           sprint=( $(jq '.sprint' build_settings.json))
           fullversion=${replacedVersion}${sprint}.${count}
-          echo "Creating tag: ${replacedVersion}"
-          git tag $replacedVersion
+          echo "Creating tag: ${fullversion}"
+          git tag $fullversion
           git push origin --tags
